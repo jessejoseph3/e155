@@ -33,31 +33,27 @@ void main(){
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
 	int songSel;
+	int **song;
 	printf("Select a song: ");
 	scanf("%d", &songSel);
 	if(songSel == 0){
 		printf("\n You selected Fur Elise \n");
+		song = notes;
 	}
 	else if(songSel == 1){
 		printf("\n You selected the Song of Time \n");
+		song = songOfTime;
 	}
 	else{
 		printf("\n You selected the Song of Storms \n");
+		song = songOfStorms;
 	}
 	int *note;
 	int i = 0;
-	note = emptyNote;
+	note = song[0];
 	while(!(note[1] == 0)){
-		if(songSel == 0){
-			note = notes[i];
-		}
-		else if(songSel == 1){
-			note = songOfTime[i];
-		}
-		else{
-			note = songOfStorms[i];
-		}
-		play_note(note[0], note[1]);
+		play_note(note[0],note[1]);
+		note = song[i];
 		i++;
 	}
 }
