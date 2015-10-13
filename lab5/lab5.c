@@ -32,7 +32,8 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
-	int note[2] = songOfTime[0];
+	int note[2];
+	note = songOfTime[0];
 	int i = 0;
 	while(!(note[1] == 0)){
 		play_note(note[0], note[1]);
