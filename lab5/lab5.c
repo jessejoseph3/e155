@@ -22,5 +22,8 @@ void play_note(int freq, int millis){
 
 void main(){
 	pioInit();
-	
+	play_note(440,5000);
+	//for(int i = 0; i < 108; i++){
+	//	play_note(notes[i][0], notes[i][1]);
+	//}
 }
