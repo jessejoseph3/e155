@@ -35,6 +35,15 @@ void main(){
 	int songSel;
 	printf("Select a song: ");
 	scanf("%d", &songSel);
+	if(songSel == 0){
+		printf("\n You selected Fur Elise \n");
+	}
+	else if(songSel == 1){
+		printf("\n You selected the Song of Time \n");
+	}
+	else{
+		printf("\n You selected the Song of Storms \n")
+	}
 	int *note;
 	int i = 0;
 	note = {0,1};
