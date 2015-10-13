@@ -33,7 +33,7 @@ void main(){
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
 	int songSel;
-	int **song;
+	const int **song;
 	printf("Select a song: ");
 	scanf("%d", &songSel);
 	if(songSel == 0){
