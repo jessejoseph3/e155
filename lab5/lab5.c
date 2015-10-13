@@ -38,25 +38,25 @@ void main(){
 	scanf("%d", &songSel);
 	if(songSel == 0){
 		printf("\n You selected Fur Elise \n");
-		*song = notes;
+		song = notes;
 		printf("this is a line 1 \n");
 	}
 	else if(songSel == 1){
 		printf("\n You selected the Song of Time \n");
-		*song = songOfTime;
+		song = songOfTime;
 	}
 	else{
 		printf("\n You selected the Song of Storms \n");
-		*song = songOfStorms;
+		song = songOfStorms;
 	}
 	const int *note;
 	int i = 0;
 	printf("this is a line 2 \n");
-	note = song[0];
+	note = *song[0];
 	printf("note[1] is: %d",note[1]);
 	while(!(note[1] == 0)){
 		play_note(note[0],note[1]);
-		note = song[i];
+		note = *song[i];
 		i++;
 	}
 }
