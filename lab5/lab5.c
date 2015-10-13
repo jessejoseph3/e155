@@ -23,9 +23,9 @@ void play_note(int freq, int millis){
 
 void main(){
 	//pioInit();
-	timerInit();
+	//timerInit();
 	printf("start");
-	delayMicros(1000000);
+	//delayMicros(1000000);
 	printf("done");
 	//pinMode(OUTPUTPIN,OUTPUT);
 	//digitalWrite(OUTPUTPIN,1);
