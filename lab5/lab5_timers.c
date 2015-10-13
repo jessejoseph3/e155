@@ -3,9 +3,10 @@
 //jjoseph@hmc.edu
 #include <stdio.h>
 
-#define TIMER 0x3F003000
+#define TIMER_BASE_ADDR 0x3F003000
+#define TIMER (volatile unsigned int *) timer_base
 
-volatile unsigned int *timer_base
+volatile unsigned int *timer_base;
 
 void timerInit() {
 	int  mem_fd;
@@ -23,7 +24,7 @@ void timerInit() {
       PROT_READ|PROT_WRITE,// Enable both reading and writing to the mapped memory
       MAP_SHARED,       // This program does not have exclusive access to this memory
       mem_fd,           // Map to /dev/mem
-      TIMER);       // Offset to GPIO peripheral
+      TIMER_BASE_ADDR);       // Offset to GPIO peripheral
 
 	if (reg_map == MAP_FAILED) {
       printf("gpio mmap error %d\n", (int)reg_map);
@@ -36,7 +37,7 @@ void timerInit() {
 
 void delayMicros(unsigned int micros)
 {
-	timer_base[0] = 0b0010;					//clear M1
-	timer_base[4] = timer_base[1] + micros;	//set comparison to be CLo + micros
-	while(~timer_base[0] & 0b0010);			//wait until match
+	TIMER[0] = 0b0010;					//clear M1
+	TIMER[4] = TIMER[1] + micros;	//set comparison to be CLo + micros
+	while(~TIMER[0] & 0b0010);			//wait until match
 }
