@@ -7,7 +7,7 @@
 #include "lab5_timers.c"
 #include <stdio.h>
 
-#define OUTPUTPIN 5;
+#define OUTPUTPIN 21
 
 void play_note(int freq, int millis){
 	int halfPeriodMicros = 500000/freq;
