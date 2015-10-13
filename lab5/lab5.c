@@ -10,12 +10,13 @@
 #define OUTPUTPIN 5
 
 void play_note(int freq, int millis){
-	int halfPeriodMicros = 500000/freq;
-	int numCycles = (freq*millis)/1000;
-	if(numCycles == 0){
+	if(freq == 0){
 		delayMicros(millis*1000);
 	}
+	
 	else{
+		int halfPeriodMicros = 500000/freq;
+		int numCycles = (freq*millis)/1000;
 		int i;
 		for(i = 0; i < numCycles; i++){
 			digitalWrite(OUTPUTPIN,0);
@@ -30,9 +31,6 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
-	printf("start \n");
-	play_note(440,1000);
-	printf("end \n");
 	int i;
 	for(i = 0; i < 108; i++){
 		play_note(notes[i][0], notes[i][1]);
