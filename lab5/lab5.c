@@ -11,7 +11,7 @@
 
 void play_note(int freq, int millis){
 	int halfPeriodMicros = 500000/freq;
-	int numCycles = freq*millis/1000;
+	int numCycles = (freq*millis)/1000;
 	if(numCycles == 0){
 		delayMicros(millis*1000);
 	}
