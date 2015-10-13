@@ -38,17 +38,17 @@ void main(){
 	scanf("%d", &songSel);
 	if(songSel == 0){
 		printf("\n You selected Fur Elise \n");
-		song = notes;
+		song = &notes;
 	}
 	else if(songSel == 1){
 		printf("\n You selected the Song of Time \n");
-		song = songOfTime;
+		song = &songOfTime;
 	}
 	else{
 		printf("\n You selected the Song of Storms \n");
-		song = songOfStorms;
+		song = &songOfStorms;
 	}
-	int *note;
+	const int *note;
 	int i = 0;
 	note = song[0];
 	printf("note[1] is: %d",note[1]);
