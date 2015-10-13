@@ -28,6 +28,5 @@ void main(){
 	int i;
 	for(i = 0; i < 108; i++){
 		play_note(notes[i][0], notes[i][1]);
-		printf("playing note %d", i);
 	}
 }
