@@ -51,6 +51,7 @@ void main(){
 	int *note;
 	int i = 0;
 	note = song[0];
+	printf("note[1] is: %d",note[1]);
 	while(!(note[1] == 0)){
 		play_note(note[0],note[1]);
 		note = song[i];
