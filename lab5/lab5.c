@@ -22,7 +22,7 @@ void play_note(int freq, int millis){
 }
 
 void main(){
-	//pioInit();
+	pioInit();
 	timerInit();
 	printf("start \n");
 	delayMicros(1000000);
