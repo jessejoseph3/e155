@@ -1,7 +1,6 @@
 //lab5_timers.c
 //functions for using system timers to set delays
 //jjoseph@hmc.edu
-#include <stdio.h>
 
 #define TIMER_BASE_ADDR 0x3F003000
 
