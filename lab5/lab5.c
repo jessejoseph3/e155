@@ -51,7 +51,7 @@ void main(){
 	}
 	const int *note;
 	int i = 0;
-	printf("this is a line 2 \n")
+	printf("this is a line 2 \n");
 	note = song[0];
 	printf("note[1] is: %d",note[1]);
 	while(!(note[1] == 0)){
