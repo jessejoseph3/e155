@@ -2,9 +2,9 @@
 //uses GPIO to play fur elise
 //jjoseph@hmc.edu
 
-#include <lab5_starter.c>
-#include <lab5_gpio.c>
-#include <lab5_timers.c>
+#include "lab5_starter.c"
+#include "lab5_gpio.c"
+#include "lab5_timers.c"
 #include <stdio.h>
 
 #define OUTPUTPIN 5;

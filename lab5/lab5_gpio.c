@@ -2,7 +2,6 @@
 //basic gpio functions for reading and writing digital pins
 //jjoseph@hmc.edu
 
-#include <lab5_starter.c>
 #include <stdio.h>
 
 void pinMode(int pin, int type)

@@ -1,8 +1,6 @@
 //lab5_timers.c
 //functions for using system timers to set delays
 //jjoseph@hmc.edu
-#include <lab5_starter.c>
-#include <lab5_gpio.c>
 #include <stdio.h>
 
 #define TIMER_BASE (volatile unsigned int *) 0x3F003000
