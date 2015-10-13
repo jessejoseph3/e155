@@ -37,5 +37,5 @@ void delayMicros(unsigned int micros)
 {
 	timer_base[0] = 0b0010;					//clear M1
 	timer_base[4] = timer_base[1] + micros;	//set comparison to be CLo + micros
-	while(~(timer_base[0] & 0b0010));			//wait until match
+	while(!(timer_base[0] & 0b0010));			//wait until match
 }
