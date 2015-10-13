@@ -27,6 +27,7 @@ void main(){
 	pinMode(OUTPUTPIN,OUTPUT);
 	digitalWrite(OUTPUTPIN,1);
 	printf("starting note \n");
+	delayMicros(2000000);
 	digitalWrite(OUTPUTPIN,0);
 	printf("finished note \n");
 	//for(int i = 0; i < 108; i++){
