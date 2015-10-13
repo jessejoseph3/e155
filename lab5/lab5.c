@@ -32,12 +32,22 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
+	int songSel;
+	printf("Select a song: ");
+	scanf("%d", &songSel);
 	int *note;
-	note = songOfTime[0];
 	int i = 0;
 	while(!(note[1] == 0)){
+		if(songSel == 0){
+			note = notes[i];
+		}
+		else if(songSel == 1){
+			note = songOfTime[i];
+		}
+		else{
+			note = songOfStorms[i];
+		}
 		play_note(note[0], note[1]);
-		note = songOfTime[i];
 		i++;
 	}
 }
