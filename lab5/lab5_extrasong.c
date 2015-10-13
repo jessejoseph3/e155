@@ -19,23 +19,23 @@
 
 
 const int songOfTime[][2] = {
-	{A4,	QUARTER}
-	{D3,	HALF}
-	{F3,	QUARTER}
-	{A4,	QUARTER}
-	{D3,	HALF}
-	{F3,	QUARTER}
-	{A4,	EIGTH}
-	{C4,	EIGTH}
-	{B4,	QUARTER}
-	{G3,	QUARTER}
-	{F3,	EIGTH}
-	{G3,	EIGTH}
-	{A4,	QUARTER}
-	{D3,	QUARTER}
-	{C3,	EIGTH}
-	{E3,	EIGTH}
-	{D3,	HALF}
-	{D3,	WHOLE}
+	{A4,	QUARTER},
+	{D3,	HALF},
+	{F3,	QUARTER},
+	{A4,	QUARTER},
+	{D3,	HALF},
+	{F3,	QUARTER},
+	{A4,	EIGTH},
+	{C4,	EIGTH},
+	{B4,	QUARTER},
+	{G3,	QUARTER},
+	{F3,	EIGTH},
+	{G3,	EIGTH},
+	{A4,	QUARTER},
+	{D3,	QUARTER},
+	{C3,	EIGTH},
+	{E3,	EIGTH},
+	{D3,	HALF},
+	{D3,	WHOLE},
 	{0,		0}
 }
