@@ -37,6 +37,7 @@ void main(){
 	scanf("%d", &songSel);
 	int *note;
 	int i = 0;
+	note = {0,1};
 	while(!(note[1] == 0)){
 		if(songSel == 0){
 			note = notes[i];
