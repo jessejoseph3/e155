@@ -25,7 +25,7 @@ void main(){
 	//pioInit();
 	timerInit();
 	printf("start \n");
-	//delayMicros(1000000);
+	delayMicros(1000000);
 	printf("done \n");
 	//pinMode(OUTPUTPIN,OUTPUT);
 	//digitalWrite(OUTPUTPIN,1);
