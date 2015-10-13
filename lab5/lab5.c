@@ -39,7 +39,7 @@ void main(){
 	if(songSel == 0){
 		printf("\n You selected Fur Elise \n");
 		song = &notes;
-		printf("this is a line \n")
+		printf("this is a line \n");
 	}
 	else if(songSel == 1){
 		printf("\n You selected the Song of Time \n");
