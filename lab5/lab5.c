@@ -5,6 +5,7 @@
 #include "lab5_starter.c"
 #include "lab5_gpio.c"
 #include "lab5_timers.c"
+#include "lab5_extrasong.c"
 
 
 #define OUTPUTPIN 5
@@ -37,6 +38,5 @@ void main(){
 		play_note(note[0], note[1]);
 		note = songOfTime[i];
 		i++;
-		
 	}
 }
