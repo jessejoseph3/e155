@@ -32,7 +32,7 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
-	int note[2];
+	int *note;
 	note = songOfTime[0];
 	int i = 0;
 	while(!(note[1] == 0)){

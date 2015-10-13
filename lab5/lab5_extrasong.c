@@ -38,4 +38,4 @@ const int songOfTime[][2] = {
 	{D3,	HALF},
 	{D3,	WHOLE},
 	{0,		0}
-}
+};
