@@ -12,12 +12,17 @@
 void play_note(int freq, int millis){
 	int halfPeriodMicros = 500000/freq;
 	int numCycles = freq*millis/1000;
-	int i;
-	for(i = 0; i < numCycles; i++){
-		digitalWrite(OUTPUTPIN,0);
-		delayMicros(halfPeriodMicros);
-		digitalWrite(OUTPUTPIN,1);
-		delayMicros(halfPeriodMicros);
+	if(numCycles == 0){
+		delayMicros(millis*1000);
+	}
+	else{
+		int i;
+		for(i = 0; i < numCycles; i++){
+			digitalWrite(OUTPUTPIN,0);
+			delayMicros(halfPeriodMicros);
+			digitalWrite(OUTPUTPIN,1);
+			delayMicros(halfPeriodMicros);
+		}
 	}
 }
 
