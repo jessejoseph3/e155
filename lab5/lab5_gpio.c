@@ -31,7 +31,7 @@ void digitalWrite(int pin, int val)
 		GPSET[offset] &= 1 << shift;		//if writing a 1 to pin, write 1 to appropriate set index
 	}
 	else{
-		printf("invalid write value")
+		printf("invalid write value");
 	}
 }
 
