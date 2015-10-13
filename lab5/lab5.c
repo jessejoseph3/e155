@@ -25,11 +25,7 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
-	digitalWrite(OUTPUTPIN,1);
-	printf("starting note \n");
-	delayMicros(2000000);
-	digitalWrite(OUTPUTPIN,0);
-	printf("finished note \n");
+	play_note(440,100);
 	//for(int i = 0; i < 108; i++){
 	//	play_note(notes[i][0], notes[i][1]);
 	//	printf("playing note %d", i);
