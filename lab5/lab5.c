@@ -25,7 +25,7 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
-	play_note(440,5000);
+	digitalWrite(OUTPUTPIN,1);
 	//for(int i = 0; i < 108; i++){
 	//	play_note(notes[i][0], notes[i][1]);
 	//}
