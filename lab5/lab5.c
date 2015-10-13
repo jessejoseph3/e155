@@ -23,10 +23,10 @@ void play_note(int freq, int millis){
 
 void main(){
 	//pioInit();
-	//timerInit();
-	printf("start");
+	timerInit();
+	printf("start \n");
 	//delayMicros(1000000);
-	printf("done");
+	printf("done \n");
 	//pinMode(OUTPUTPIN,OUTPUT);
 	//digitalWrite(OUTPUTPIN,1);
 	//for(int i = 0; i < 108; i++){
