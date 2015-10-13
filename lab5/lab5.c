@@ -42,11 +42,11 @@ void main(){
 		printf("\n You selected the Song of Time \n");
 	}
 	else{
-		printf("\n You selected the Song of Storms \n")
+		printf("\n You selected the Song of Storms \n");
 	}
 	int *note;
 	int i = 0;
-	note = {0,1};
+	note = emptyNote;
 	while(!(note[1] == 0)){
 		if(songSel == 0){
 			note = notes[i];

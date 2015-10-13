@@ -102,3 +102,5 @@ const int songOfStorms[][2] = {
 	{D3,	HALF180},
 	{0,		0}
 };
+
+const int emptyNote[2] = {0,1};
