@@ -30,11 +30,9 @@ void main(){
 	pioInit();
 	timerInit();
 	pinMode(OUTPUTPIN,OUTPUT);
-	while(1){
-		play_note(440,1000);
-		printf("played a note");
-		delayMicros(10000000);
-	}
+	printf("start \n");
+	play_note(440,1000);
+	printf("end \n");
 	//int i;
 	//for(i = 0; i < 108; i++){
 	//	play_note(notes[i][0], notes[i][1]);
