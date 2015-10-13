@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 #define TIMER_BASE_ADDR 0x3F003000
-#define TIMER (volatile unsigned int *) timer_base
 
 volatile unsigned int *timer_base;
 
@@ -37,7 +36,7 @@ void timerInit() {
 
 void delayMicros(unsigned int micros)
 {
-	TIMER[0] = 0b0010;					//clear M1
-	TIMER[4] = TIMER[1] + micros;	//set comparison to be CLo + micros
-	while(~TIMER[0] & 0b0010);			//wait until match
+	timer_base[0] = 0b0010;					//clear M1
+	timer_base[4] = timer_base[1] + micros;	//set comparison to be CLo + micros
+	while(~(timer_base[0] & 0b0010));			//wait until match
 }
