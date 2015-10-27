@@ -64,7 +64,7 @@ int readSPI()
 int main(void)
 {
 	pioInit();
-	SPIinit(100000,0x0);
+	SPIinit(100000,0x30);
 	int data = readSPI();
 	printf("output is %d \n", data);
 	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
