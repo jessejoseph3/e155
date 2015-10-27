@@ -52,7 +52,7 @@ void SPIinit(int freq, int settings)
 char spiXFer(char data_out)
 {
 	spi0[1] = data_out;
-	while(!spi0[0]& (1<<16));
+	while(!(spi0[0] & (1<<16)));
 	return spi0[1];
 }
 
