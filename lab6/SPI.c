@@ -2,7 +2,7 @@
 //SPI functionality for e155 lab6
 
 #include "GPIO.h"
-#define SPI_BASE ((volatile unsigned int *) 0x3F204000)
+#define SPI_BASE 0x3F204000
 
 volatile unsigned int *spi0; //pointer to base of gpio
 
@@ -38,6 +38,7 @@ void SPImmap() {
 
 void SPIinit(int freq, int settings)
 {
+	SPImmap();
 	pinMode(7,ALT0);
 	pinMode(9,ALT0);
 	pinMode(10,ALT0);
