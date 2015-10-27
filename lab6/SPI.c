@@ -66,7 +66,7 @@ int main(void)
 	pioInit();
 	SPIinit(100000,0x30);
 	int data = readSPI();
-	double voltage = 5.0*(data/1024.0);
+	float voltage = 5.0*(data/1024.0);
 	printf("voltage is %d \n", data);
 	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
 
