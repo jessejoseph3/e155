@@ -1,76 +1,37 @@
-#ifndef _INCLUDE_GPIO_
-#define _INCLUDE_GPIO_
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/mman.h>
-
-
-// Mem locations for Periferals
-#define perifBase 0x3F000000
-#define GPIOBASE perifBase+0x200000
-
-// Constants for Pin funct
-#define OUTPUT 0b001
-
-//LED output pin
+//lab5_gpio.c
+//basic gpio functions for reading and writing digital pins
+//jjoseph@hmc.edu
+#include "STARTER.h"
 #define LEDPIN 21
 
-volatile unsigned int *GPIO;  // pointer to base of GPIO registers
-
-// from http://mygeekyfun.blogspot.com/2012/06/gpio-on-raspberry-pi.html
-// map a page (4096 bytes) starting at physical address base
-volatile unsigned int *phys_to_virt(long base)
-{
-  int mem_fd;
-  char *io_mem;
-  char *io_m;
-  volatile unsigned *io;
-
-  mem_fd=open("/dev/mem",O_RDWR|O_SYNC);
-
-  // create page-aligned pointer to 4096 bytes
-  io_mem=(char *) malloc(8192);
-  io_mem+=4096;
-  io_mem=(char*) (((int) io_mem) & 0xfffff000);
-
-  io_m=(char *) mmap((caddr_t)io_mem,4096,
-                     PROT_READ|PROT_WRITE,
-                     MAP_SHARED|MAP_FIXED,
-                     mem_fd,base);
-  //io=(volatile unsigned *)io_m;
-  return((int *)io_m);
-}
-
-// Sets up the pointers for GPIO.h
-void SetUpPerif()
-{
-	GPIO = phys_to_virt(GPIOBASE);
-}
-
-// sets a GPIO pin acording to func
-void setPinType( int pin, int func)
-{
-	int reg = pin/10;
-	int offset = (pin % 10)*3;
-	volatile unsigned int* loc = GPIO + reg;
-	*(loc) = *(volatile unsigned int*) (loc) &~((0b111 & ~ func) << offset);
-	*(loc) =  *(volatile unsigned int*) (loc) | ((0b111 &   func) << offset);
-}
-
-// Used to write a pin high or low
-void digitalWrite(int pin, int val)
-{
-	int reg = pin / 32;
-	int offset = pin % 32;
-	volatile unsigned int* loc = GPIO + reg + 7;
-	if (val){
-		*(loc) = 1 << offset;
+void pinMode(int pin, int type)
+{	
+	if(pin<0 | pin > 54){
+		printf("invalid pin");
 	}
-	else {
-		loc += 3;
-	}	*(loc) = 1 << offset;
+	else{
+		unsigned int offset = pin/10;		//address offset for GPFSEL
+		unsigned int shift = (pin%10)*3;	//shift to appropriate 3 bit pin function select
+		GPFSEL[offset] &= ~(7 << shift);	//bitmask current signal with to clear current Fselect
+		GPFSEL[offset] |= type << shift;	//input new Fselect
+	}
 }
 
-#endif
+void digitalWrite(int pin, int val)
+{	
+	unsigned int offset = pin/31;			//determines if clr/set is clr/set 0 or 1
+	unsigned int shift = pin%31;			//shift amount to find specific pin in clr/set signals
+	if(pin < 0 | pin > 54){
+		printf("invalid pin");
+	}
+	else if(val == 0){
+		GPCLR[offset] &= 1 << shift; 		//if writing a 0 to pin, write 1 to appropriate clear index
+	}
+	else if(val == 1){
+		GPSET[offset] &= 1 << shift;		//if writing a 1 to pin, write 1 to appropriate set index
+	}
+	else{
+		printf("invalid write value");
+	}
+}
+

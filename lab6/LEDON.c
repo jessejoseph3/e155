@@ -1,12 +1,13 @@
 //Turn On LED
 
 #include "GPIO.h"
+#define LEDPIN 21
 int main(void)
 {
 	
 	// Turn on the LED
-	SetUpPerif();
-	setPinType(LEDPIN, OUTPUT);
+	pioInit();
+	pinMode(LEDPIN, OUTPUT);
 	digitalWrite(LEDPIN, 1);
 
 	//HTML header
