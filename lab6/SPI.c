@@ -49,11 +49,15 @@ void SPIinit(int freq, int settings)
 	spi0[0] |= 1 << 7;
 }
 
-char spiXFer(char data_out)
+int spiXFer(char data_out)
 {
 	spi0[1] = data_out;
+	spi0[1] = 0x00;
 	while(!(spi0[0] & (1<<16)));
-	return spi0[1];
+	int top_of_data = spi0[1] << 8;
+	int data = top_of_data | spi0[1];
+	data &= ~1;
+	return data;
 }
 
 int main(void)
