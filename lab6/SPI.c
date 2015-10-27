@@ -25,7 +25,7 @@ void SPImmap() {
       SPI_BASE);       // Offset to GPIO peripheral
 
 	if (reg_map == MAP_FAILED) {
-      printf("gpio mmap error %d\n", (int)reg_map);
+      printf("spi mmap error %d\n", (int)reg_map);
       close(mem_fd);
       exit(-1);
     }
@@ -39,7 +39,7 @@ void SPImmap() {
 void SPIinit(int freq, int settings)
 {
 	SPImmap();
-	pinMode(7,ALT0);
+	pinMode(8,ALT0);
 	pinMode(9,ALT0);
 	pinMode(10,ALT0);
 	pinMode(11,ALT0);
@@ -60,7 +60,7 @@ int main(void)
 {
 	pioInit();
 	SPIinit(100000,0x0);
-	char data = spiXFer('0');
+	char data = spiXFer('Z');
 	printf("voltage is: %d \n", data);
 	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
 
