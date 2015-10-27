@@ -77,14 +77,9 @@ int main(void)
 	//printf("voltage is %0.3f \n", voltage);
 	printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
 
-	//printf("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;url=/ledcontrol.html?voltage=%d\">",data);
+	printf("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;url=/ledcontrol.html?voltage=%d\">",data);
 
-	printf("
-		<HTML>
-		<HEAD>
-		<TITLE> Voltage is %0.3f </TITLE>
-		</HEAD>
-		</HTML>");
+
 
 	return 0;
 
