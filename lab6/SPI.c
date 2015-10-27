@@ -67,7 +67,8 @@ int main(void)
 	SPIinit(100000,0x30);
 	int data = readSPI();
 	double voltage = 5.0*(data/1024.0);
-	printf("voltage is %d \n", voltage);
+	//printf("data is %d \n", data);
+	printf("voltage is %0.3f \n", voltage);
 	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
 
 	//printf("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;url=/ledcontrol.html&voltage=%d\">",data);
