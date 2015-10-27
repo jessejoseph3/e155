@@ -49,14 +49,15 @@ void SPIinit(int freq, int settings)
 	spi0[0] |= 1 << 7;
 }
 
-int spiXFer(char data_out)
+int readSPI()
 {
-	spi0[1] = data_out;
-	spi0[1] = 0x00;
+	char firstByte = 0x68;
+	char secondByte = 0x00;
+	spi0[1] = firstByte;
+	spi0[1] = secondByte;
 	while(!(spi0[0] & (1<<16)));
 	int top_of_data = spi0[1] << 8;
 	int data = top_of_data | spi0[1];
-	data &= ~1;
 	return data;
 }
 
@@ -64,7 +65,7 @@ int main(void)
 {
 	pioInit();
 	SPIinit(100000,0x0);
-	int data = spiXFer(0xD0);
+	int data = readSPI();
 	printf("output is %d \n", data);
 	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
 
