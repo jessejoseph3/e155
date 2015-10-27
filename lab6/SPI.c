@@ -61,7 +61,7 @@ int main(void)
 	pioInit();
 	SPIinit(100000,0x0);
 	char data = spiXFer('Z');
-	printf("voltage is: %d \n", data);
+	printf(data);
 	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
 
 	//printf("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;url=/ledcontrol.html&voltage=%d\">",data);
