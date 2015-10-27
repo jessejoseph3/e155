@@ -1,5 +1,5 @@
 //lab5_extrasong
-//frequency-duration array of notes for legend of zelda song of time
+//frequency-duration array of notes for legend of zelda song of time and song of storms
 
 //		NOTE 		DURATION
 #define EIGTH		250
