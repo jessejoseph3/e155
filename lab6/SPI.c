@@ -2,7 +2,7 @@
 //SPI functionality for e155 lab6
 
 #include "GPIO.h"
-#define SPIBASE (volatile unsigned int *) 0x3F204000
+#define SPIBASE ((volatile unsigned int *) 0x3F204000)
 void SPIinit(int freq, int settings)
 {
 	pinMode(7,ALT0);
