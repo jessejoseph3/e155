@@ -54,11 +54,15 @@ int readSPI()
 	char firstByte = 0x68;
 	char secondByte = 0x00;
 	spi0[1] = firstByte;
+	while(!(spi0[0] & (1<<16)));
+	int top_of_data = spi0[1];
+	printf("first read was: %d \n", top_of_data);
 	spi0[1] = secondByte;
 	while(!(spi0[0] & (1<<16)));
-	int top_of_data = spi0[1] << 8;
-	int data = top_of_data | spi0[1];
-	return data;
+	//int top_of_data = spi0[1] << 8;
+	int data = spi0[1];
+	printf("second read was: %d \n", data);
+	return 0;
 }
 
 int main(void)
@@ -67,10 +71,10 @@ int main(void)
 	SPIinit(100000,0x30);
 
 	int data = readSPI();
-	double voltage = 5.0*(data/1024.0);
+	//double voltage = 5.0*(data/1024.0);
 
-	printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
-	printf("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;url=/ledcontrol.html?voltage=%0.3f \">",voltage);
+	//printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
+	//printf("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;url=/ledcontrol.html?voltage=%0.3f \">",voltage);
 
 
 
